@@ -3,34 +3,37 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
+import SEO from "../components/seo"
 
-const Tag = props => {
+
+
+const Category = props => {
   const { data, pageContext } = props
   const { edges: posts, totalCount } = data.allWordpressPost
   const { title: siteTitle } = data.site.siteMetadata
-  const { name: tag } = pageContext
+  const { name: category } = pageContext
   const title = `${totalCount} post${
     totalCount === 1 ? '' : 's'
-  } with the tag ${tag}`
+  } in the “${category}” category`
 
   return (
     <Layout>
-      <Helmet title={`${tag} | ${siteTitle}`} />
+      <SEO title={`${category} | ${siteTitle}`}  />
       <PostList posts={posts} title={title} />
     </Layout>
   )
 }
 
-export default Tag
+export default Category
 
 export const pageQuery = graphql`
-  query TagPage($slug: String!) {
+  query CategoryPage($slug: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    allWordpressPost(filter: { tags: { slug: { eq: $slug } } }) {
+    allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: $slug}}}}) {
       totalCount
       edges {
         node {

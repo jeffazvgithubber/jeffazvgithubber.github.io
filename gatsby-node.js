@@ -16,6 +16,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             id
             slug
+            custom_permalink
             status
           }
         }
@@ -28,7 +29,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const pageTemplate = path.resolve(`./src/templates/page.js`)
+      const pageTemplate = path.resolve(`./src/templates/pagenode.js`)
 
       // Only publish pages with a `status === 'publish'` in production. This
       // excludes drafts, future posts, etc. They will appear in development,
@@ -43,8 +44,59 @@ exports.createPages = ({ actions, graphql }) => {
       // Call `createPage()` once per WordPress page
       _.each(pages, ({ node: page }) => {
         createPage({
-          path: `/${page.slug}/`,
+          path:
+            page.custom_permalink !== ''
+              ? `/${page.custom_permalink}`
+              : `/${page.slug}/`,
           component: pageTemplate,
+          context: {
+            id: page.id,
+          },
+        })
+      })
+    })
+    .then(() => {
+      return graphql(`
+        {
+          allWordpressWpGames {
+            edges {
+              node {
+                id
+                slug
+                custom_permalink
+                status
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const gameTemplate = path.resolve(`./src/templates/gamenode.js`)
+
+      // Only publish pages with a `status === 'publish'` in production. This
+      // excludes drafts, future posts, etc. They will appear in development,
+      // but not in a production build.
+
+      const allPages = result.data.allWordpressWpGames.edges
+      const pages =
+        process.env.NODE_ENV === 'production'
+          ? getOnlyPublished(allPages)
+          : allPages
+
+      // Call `createPage()` once per WordPress page
+      _.each(pages, ({ node: page }) => {
+        createPage({
+          path:
+            page.custom_permalink !== ''
+              ? `/${page.custom_permalink}`
+              : `/${page.slug}/`,
+          component: gameTemplate,
           context: {
             id: page.id,
           },
@@ -72,8 +124,8 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const postTemplate = path.resolve(`./src/templates/post.js`)
-      const blogTemplate = path.resolve(`./src/templates/blog.js`)
+      const postTemplate = path.resolve(`./src/templates/postnode.js`)
+      const blogTemplate = path.resolve(`./src/templates/blognode.js`)
 
       // In production builds, filter for only published posts.
       const allPosts = result.data.allWordpressPost.edges
@@ -124,7 +176,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const categoriesTemplate = path.resolve(`./src/templates/category.js`)
+      const categoriesTemplate = path.resolve(`./src/templates/categorynode.js`)
 
       // Create a Gatsby page for each WordPress Category
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
@@ -160,7 +212,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const tagsTemplate = path.resolve(`./src/templates/tag.js`)
+      const tagsTemplate = path.resolve(`./src/templates/tagnode.js`)
 
       // Create a Gatsby page for each WordPress tag
       _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
@@ -170,38 +222,6 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             name: tag.name,
             slug: tag.slug,
-          },
-        })
-      })
-    })
-    .then(() => {
-      return graphql(`
-        {
-          allWordpressWpUsers {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
-        }
-      `)
-    })
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const authorTemplate = path.resolve(`./src/templates/author.js`)
-
-      _.each(result.data.allWordpressWpUsers.edges, ({ node: author }) => {
-        createPage({
-          path: `/author/${author.slug}`,
-          component: authorTemplate,
-          context: {
-            id: author.id,
           },
         })
       })

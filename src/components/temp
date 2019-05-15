@@ -1,0 +1,279 @@
+{
+  allWordpressWpGames {
+    edges {
+      node {
+        wordpress_id
+        template
+        slug
+        title
+        acf {
+          name
+          hero_summary
+          description
+          carousel_hero_image
+          game_logo {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  srcSet
+                  srcSetWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+{
+   allWordpressPost(filter: {categories: {elemMatch: {slug: { eq: "section-right-image" }}}} ){
+    totalCount
+    edges {
+      node {
+        guid
+        title
+        excerpt
+        slug
+        categories {
+              name
+              id
+        }
+      }
+    }
+  }
+}
+
+{
+  allWordpressWpHomeSections (filter: {categories: {elemMatch: {slug: { eq: "section-game-gallery" }}}} ){
+    totalCount
+    edges {
+      node {
+        guid
+        title
+
+        slug
+        categories {
+              name
+              id
+        }
+      }
+    }
+  }
+}
+
+{
+  allWordpressWpHomeSections (sort : { fields: menu_order, order: ASC }) {
+    totalCount
+    edges {
+      node {
+        guid
+        title
+
+        slug
+        categories {
+              name
+              id
+        }
+        
+      }
+    }
+  }
+}
+
+{
+  allWordpressWpHomeSections (filter: {categories: {elemMatch: {slug: { eq: "section-game-gallery" }}}} ){
+    totalCount
+    edges {
+      node {
+        guid
+        title
+
+        slug
+        categories {
+              name
+              id
+        }
+        acf
+        {
+          large_games {
+            wordpress_id
+            post_author
+            post_date
+            post_date_gmt
+            post_content
+            post_title
+            post_excerpt
+            post_status
+            comment_status
+            ping_status
+            post_password
+            post_name
+            to_ping
+            pinged
+            post_modified
+            post_modified_gmt
+            post_content_filtered
+            post_parent
+            guid
+            menu_order
+            post_type
+            post_mime_type
+            comment_count
+            filter
+          }
+          
+        }
+      }
+    }
+  }
+}
+
+{
+  allWordpressWpHomeSections (sort : { fields: menu_order, order: ASC }) {
+    totalCount
+    edges {
+      node {
+        
+        guid
+        title
+menu_order
+        slug
+        categories {
+              name
+              id
+        }
+        acf {
+          headline
+          columns {
+            column {
+              text
+              icon {
+                id
+                localFile {
+                  id
+                  url
+                }
+              }
+            } 
+          }
+          icon {
+            id
+            localFile {
+              id
+              url
+            }
+          }
+          side_text 
+          footnote
+          large_games {
+            post_title
+            
+          }
+          games {
+            post_title
+          }
+          winners {
+            winner {
+              game_title
+            }
+          }          
+        }
+      }
+    }
+  }
+  
+  
+
+  {
+  allWordpressPage(filter: {template: {eq: "php/page-real-cash-home.php"}}) {
+    totalCount
+    edges {
+      node {
+        id
+        slug
+        type
+        path
+        acf {
+          jefftestcarousel {
+            jimage2 {
+              id
+              localFile {
+                id
+                absolutePath
+              }
+            }
+            jeffscarousel_image_text
+          }
+        }
+        yoast_meta {
+          yoast_wpseo_title
+          yoast_wpseo_metadesc
+          yoast_wpseo_canonical
+          yoast_wpseo_facebook_title
+          yoast_wpseo_facebook_description
+          yoast_wpseo_facebook_type
+          yoast_wpseo_facebook_image
+          yoast_wpseo_twitter_title
+          yoast_wpseo_twitter_description
+          yoast_wpseo_twitter_image
+          yoast_wpseo_social_url
+          yoast_wpseo_company_or_person
+          yoast_wpseo_person_name
+          yoast_wpseo_company_name
+          yoast_wpseo_company_logo
+          yoast_wpseo_website_name
+        }
+      }
+    }
+  }
+}
+
+
+{
+  allWordpressWpHomeSections(filter: {categories: {elemMatch: {slug: {eq: "section-game-gallery"}}}}) {
+    totalCount
+    edges {
+      node {
+        acf {
+          games {
+            wordpress_id
+          }
+        }
+      }
+    }
+  }
+}
+
+{
+
+	allWordpressWpGames(filter: {wordpress_id: {in: [1675,1588]}}) {
+    edges {
+      node {
+        wordpress_id
+        template
+        slug
+        title
+        acf {
+          name
+          hero_summary
+          description
+          carousel_hero_image
+          game_logo {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  srcSet
+                  srcSetWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

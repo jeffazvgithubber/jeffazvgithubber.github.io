@@ -1,28 +1,51 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'Chumba Casino',
+    description :'Description',
+    author : 'Chumba Casino'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        baseUrl: 'wpdemo.gatsbycentral.com',
+        baseUrl: 'localhost:8000',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
-        protocol: 'https',
+        protocol: 'http',
         // Use 'Advanced Custom Fields' Wordpress plugin
-        useACF: false,
+        useACF: true,
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
-        verboseOutput: false,
+        verboseOutput: true,
+        includedRoutes: [
+          "**/games",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+          '**/menus',
+          '**/category',
+          '**/categories',
+          '**/home-sections',
+          '**/testimonials',
+          
+          
+        ],
+        // searchAndReplaceContentUrls: {
+        //   sourceUrl: "http://localhost:8000",
+        //   replacementUrl: "http://localhost:8001",
+        // }
       },
     },
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    'gatsby-transformer-sharp',    
     {
       // Removes unused css rules
       resolve:'gatsby-plugin-purgecss',
