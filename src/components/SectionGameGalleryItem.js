@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link} from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 // I could not get emotion to do this correctly
@@ -24,10 +24,11 @@ const SectionGameGalleryItemWrapper = ({ data, filteredObjectIds }) => {
     <div className="col-md-2 col-sm-6 col-6">
       {filteredResults.map(({ node }) => {
         return (
-          <StyledImg
-            key={node.slug}
-            fluid={node.acf.medium_icon.localFile.childImageSharp.fluid}
-          />
+          <Link key={node.slug} to={node.custom_permalink}>
+            <StyledImg
+              fluid={node.acf.medium_icon.localFile.childImageSharp.fluid}
+            />
+          </Link>
         )
       })}
     </div>
@@ -46,6 +47,7 @@ export default props => {
             edges {
               node {
                 wordpress_id
+                custom_permalink
                 template
                 slug
                 title

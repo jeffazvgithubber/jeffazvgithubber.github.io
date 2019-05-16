@@ -12,13 +12,12 @@ const MainCenteredArea = styled.div`
   margin: 0 auto;
 `
 
-
 // I could not get emotion to do this correctly
 const StyledImg = styled(Img)`
-  width:100%;
+  width: 100%;
   @media (min-width: 600px) {
-    width :600px;
-  }  
+    width: 600px;
+  }
 `
 
 const IndexPage = ({ data }) => {
@@ -30,15 +29,24 @@ const IndexPage = ({ data }) => {
       />
 
       <MainCenteredArea>
-
         {/* @todo replace this with carousel   */}
-        <StyledImg
-          fluid={
-            data.edges[0].node.acf.jefftestcarousel[0].jimage2.localFile
-              .childImageSharp.fluid
-          }
-        />
-        <HomeSections/>
+
+        {data.edges[0].node.acf.jefftestcarousel.map(carouselImage => {
+          return (
+           
+              carouselImage.jimage2 && (
+                <div>
+                  <div>{carouselImage.jeffscarousel_image_text}</div>              
+                  <StyledImg
+                    key={carouselImage.jimage2.localFile.id}
+                    fluid={carouselImage.jimage2.localFile.childImageSharp.fluid}
+                  />
+                </div>
+              )
+          )
+        })}
+<hr></hr>
+        <HomeSections />
       </MainCenteredArea>
     </Layout>
   )

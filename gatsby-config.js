@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Chumba Casino',
     description :'Description',
-    author : 'Chumba Casino'
+    author : 'Chumba Casino',
+    siteUrl: `http://10.1.222.150:9000`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -56,6 +57,33 @@ module.exports = {
         purgeOnly: ['/all.sass'],
       },
     }, // must be after other CSS plugins
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        showSpinner: false,
+        trickle: false,
+        minimum: 0.4,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Chumba Casino`,
+        short_name: `Chumba Casino`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `src/img/icon.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+        options: {
+          sitemapSize: 5000
+        }
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }
