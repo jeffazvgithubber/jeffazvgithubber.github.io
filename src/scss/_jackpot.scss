@@ -1,0 +1,45 @@
+.jackpot {
+  display: none;
+  margin-top: 30px;
+  background: color(secondary) url('../images/jackpot-bg.png') no-repeat center;
+  background-size: cover;
+  color: color(white);
+
+  @include breakpoint(desktop) {
+    margin-top: 50px;
+  }
+
+  .row {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  h1 {
+    @include font-size(60px, 60px);
+
+    color: color(white);
+
+    @include breakpoint(desktop) {
+      @include font-size(120px, 120px);
+    }
+  }
+
+  h2 {
+    @include font-size(32px);
+
+    margin-top: 30px;
+    color: color(white);
+
+    @include breakpoint(desktop) {
+      @include font-size(45px);
+    }
+  }
+
+  &-small {
+    background:
+      color(secondary) url('../images/jackpot-bg.png') no-repeat
+      center;
+  }
+}

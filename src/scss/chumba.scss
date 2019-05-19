@@ -1,0 +1,37 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'custom-variables';
+@import 'colors';
+@import 'fonts';
+@import 'layout';
+
+// @import 'mixins/layout';
+// @import 'mixins/colors';
+@import 'accessibility';
+@import 'mixins';
+@import 'typography';
+@import 'bootstrap-overrides';
+@import 'global';
+@import 'buttons';
+@import 'navbar';
+@import 'masthead';
+@import 'games_masthead';
+@import 'hero';
+@import 'carousel';
+@import 'promo';
+@import 'portfolio';
+@import 'contact';
+@import 'footer';
+@import 'headeroverlay';
+@import 'game_menu';
+@import 'games';
+@import 'jackpot';
+@import 'testimonials';
+@import 'chumbas';
+@import 'game';
+@import 'news';
+@import 'landing';
+@import 'scholarship';
+@import 'accordion';
+@import 'loader';
+
+

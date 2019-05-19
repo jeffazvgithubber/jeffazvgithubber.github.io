@@ -1,0 +1,104 @@
+.game-summary {
+  margin: 0px auto;
+
+  @include breakpoint(desktop) {
+    max-width: 960px;
+  }
+
+  h1 {
+    @include font(hind, light);
+    @include font-size(50px, 50px);
+
+    @include breakpoint(tablet) {
+      @include font-size(40px, 40px);
+    }
+
+    @include breakpoint(desktop) {
+      @include font-size(50px, 50px);
+    }
+
+    word-break: break-word;
+    margin: 0 0 10px;
+    padding: 0;
+  }
+
+  h2 {
+    @include font(hind, light);
+    @include font-size(20px, 20px);
+
+    margin: 0 0 15px;
+    padding: 0;
+    letter-spacing: 3px;
+  }
+
+  .rating {
+    margin: 15px 0;
+  }
+
+  .star {
+    &.empty {
+      color: color(grey, 300);
+    }
+  }
+
+  p {
+    @include font(hind, light);
+    @include font-size(20px);
+
+    margin-top: 30px;
+
+    @include breakpoint(tablet) {
+      margin-top: 0;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 15px;
+
+    @include breakpoint(desktop) {
+      width: auto;
+    }
+  }
+}
+
+.section-paytable {
+  max-width: 900px;
+  margin: 0 auto;
+
+  &-mobile {
+    div[class*='col'] {
+      flex-basis: 50%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .carousel {
+    padding-bottom: 50%;
+
+    &-control {
+      &-next,
+      &-prev {
+        background-color: transparent;
+      }
+
+      &-next {
+        right: -20px;
+      }
+
+      &-prev {
+        left: -20px;
+      }
+
+      &-prev-icon {
+        background: url('../images/prev-grey.png') no-repeat center;
+        background-size: contain;
+      }
+
+      &-next-icon {
+        background: url('../images/next-grey.png') no-repeat center;
+        background-size: contain;
+      }
+    }
+  }
+}

@@ -2,10 +2,15 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import Layout from '../components/Layout'
+import { Carousel } from '@bit/grommet.grommet.carousel'
+// import { Image } from '@bit/grommet.grommet.image';
+import Layout from './../components/Layout'
+import NotificationsForm from '../components/subscribe/NotificationsForm'
+
+// import Carousel from './../components/styledcarousel'
+
 import HomeSections from '../components/HomeSections'
 import SEO from '../components/seo'
-
 
 const MainCenteredArea = styled.div`
   max-width: 1200px;
@@ -20,7 +25,25 @@ const StyledImg = styled(Img)`
   }
 `
 
+const Item = styled.div`
+  background: darkorange;
+  text-align: center;
+  padding: 50px;
+  color: white;
+`
+
+const CarouselItem = props => {
+  return <Item>{props.children}</Item>
+}
+
 const IndexPage = ({ data }) => {
+  console.log('results')
+  console.log(data.edges[0].node.acf.jefftestcarousel)
+  const filteredResults = data.edges[0].node.acf.jefftestcarousel.filter(
+    node => node && node.jimage2
+  )
+
+  console.log(filteredResults)
   return (
     <Layout>
       <SEO
@@ -28,25 +51,46 @@ const IndexPage = ({ data }) => {
         keywords={[`gatsby`, `application`, `react`]}
       />
 
+      <Carousel play={5000}>
+        {filteredResults.map(carouselImage => {
+          return (
+            <Img
+              fluid={carouselImage.jimage2.localFile.childImageSharp.fluid}
+            />
+          )
+        })}
+      </Carousel>
+
       <MainCenteredArea>
         {/* @todo replace this with carousel   */}
 
-        {data.edges[0].node.acf.jefftestcarousel.map(carouselImage => {
-          return (
-           
-              carouselImage.jimage2 && (
-                <div>
-                  <div>{carouselImage.jeffscarousel_image_text}</div>              
-                  <StyledImg
-                    key={carouselImage.jimage2.localFile.id}
-                    fluid={carouselImage.jimage2.localFile.childImageSharp.fluid}
-                  />
-                </div>
-              )
-          )
-        })}
-<hr></hr>
+        {/* <Carousel title="Carousel">
+          {filteredResults.map(carouselImage => {
+            return (
+              <CarouselItem key={carouselImage.jimage2.localFile.id}>
+                <Img
+                  fluid={carouselImage.jimage2.localFile.childImageSharp.fluid}
+                />
+              </CarouselItem>
+            )
+          })}
+        </Carousel> */}
+
+        {/* 
+         {filteredResults.map(carouselImage => {
+            return (
+              <CarouselItem key={carouselImage.jimage2.localFile.id}>
+                <Img
+                  fluid={carouselImage.jimage2.localFile.childImageSharp.fluid}
+                />
+              </CarouselItem>
+            )
+          })}  */}
+
+        <hr />
         <HomeSections />
+
+        <NotificationsForm />
       </MainCenteredArea>
     </Layout>
   )
@@ -78,7 +122,6 @@ export default () => (
                       }
                     }
                   }
-                  jeffscarousel_image_text
                 }
               }
               yoast_meta {

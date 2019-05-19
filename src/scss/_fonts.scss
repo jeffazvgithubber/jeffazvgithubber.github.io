@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700');
+
+@font-face {
+  font-family: 'djb_get_digitalregular';
+  src:
+    url('../fonts/djb_get_digital-webfont.woff2') format('woff2'),
+    url('../fonts/djb_get_digital-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+$fonts: (
+  hind: (
+    light: (
+      family: 'Hind',
+      weight: 300,
+    ),
+    regular: (
+      family: 'Hind',
+      weight: 400,
+    ),
+    medium: (
+      family: 'Hind',
+      weight: 500,
+    ),
+    semibold: (
+      family: 'Hind',
+      weight: 600,
+    ),
+    bold: (
+      family: 'Hind',
+      weight: 700,
+    ),
+    fallback: (
+      'Tahoma',
+      sans-serif,
+    ),
+  ),
+  digital: (
+    regular: (
+      family: 'djb_get_digitalregular',
+      weight: 400,
+    ),
+    fallback: (
+      'Tahoma',
+      sans-serif,
+    ),
+  ),
+);

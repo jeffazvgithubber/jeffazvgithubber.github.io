@@ -1,0 +1,645 @@
+.landing {
+  background: color(black);
+
+  &-hero {
+    position: relative;
+    height: 100vh;
+    max-height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include breakpoint(tablet) {
+      background-position: right top;
+    }
+
+    @include breakpoint(desktop) {
+      height: 600px;
+      max-height: 100vh;
+      padding-top: 0;
+      background-position: right center;
+      background-size: cover;
+    }
+
+    > .container {
+      position: relative;
+      height: 100%;
+
+      @include breakpoint(desktop, max-width) {
+        max-width: 100%;
+      }
+
+      @include breakpoint(desktop) {
+      }
+    }
+
+    &__container {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      background: rgba(color(secondary), 0.4);
+
+      @include breakpoint(desktop) {
+        left: auto;
+        right: 0;
+        width: 450px;
+        margin: 0;
+        padding: 30px;
+        text-align: left;
+        transform: translateY(-50%);
+        background: none;
+      }
+    }
+
+    &__title,
+    &__subtitle {
+      @include font-size(35px, 35px);
+      @include font(hind, regular);
+
+      margin: 0;
+      color: color(white);
+      letter-spacing: -1px;
+
+      @include breakpoint(desktop) {
+        @include font-size(70px, 70px);
+
+        padding: 0;
+        color: color(secondary);
+      }
+    }
+
+    &__subtitle {
+      margin: 0 0 30px;
+
+      @include breakpoint(desktop) {
+        margin: 0 0 40px;
+      }
+    }
+
+    &__buttons {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+
+      @include breakpoint(desktop) {
+        margin: 0;
+      }
+
+      > li {
+        max-width: 100%;
+        margin-bottom: 15px;
+
+        @include breakpoint(desktop) {
+          width: 325px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          display: block;
+          text-transform: none;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .btn {
+      @include font-size(13px, 42px);
+      @include font(hind, bold);
+
+      width: 180px;
+      height: 42px;
+      padding: 0 10px;
+      border-width: 0;
+      border-radius: 4px;
+
+      @include breakpoint(desktop) {
+        @include font-size(24px, 60px);
+
+        width: auto;
+        height: 60px;
+      }
+
+      &-icon__icon {
+        float: left;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        margin: 12px 6px 12px 0;
+        border-radius: 3px;
+
+        @include breakpoint(desktop) {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  &-steps {
+    position: relative;
+    display: none;
+
+    @include breakpoint(tablet) {
+      display: block;
+    }
+
+    &__mobile {
+      position: relative;
+      display: block;
+
+      @include breakpoint(tablet) {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .btn {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include breakpoint(desktop) {
+        }
+
+        &-play {
+          @include font-size(34px);
+
+          height: 60px;
+          line-height: 60px;
+          width: 330px;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      right: 45px;
+      transform: translateY(-50%);
+
+      @include breakpoint(desktop) {
+      }
+
+      &-play {
+        @include breakpoint(desktop) {
+          width: 220px;
+        }
+
+        @include breakpoint(large) {
+          @include font-size(34px);
+
+          height: 60px;
+          line-height: 60px;
+          width: 250px;
+        }
+      }
+    }
+  }
+
+  .navbar-nonav {
+    position: absolute;
+    background-color: transparent;
+
+    .navbar-nav {
+      margin-top: 5px !important;
+
+      @include breakpoint(desktop) {
+        box-sizing: border-box;
+        width: 435px;
+        padding: 0 30px;
+      }
+    }
+
+    .nav-item a {
+      @include font-size(14px, 17px);
+
+      display: inline-block;
+      color: color(white);
+      text-transform: none;
+
+      @include breakpoint(tablet) {
+        @include font-size(16px, 17px);
+
+        color: color(secondary);
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      & strong {
+        display: inline-block;
+        border-bottom: 1px solid color(white);
+
+        @include breakpoint(tablet) {
+          border-bottom: 1px solid color(secondary);
+        }
+      }
+    }
+  }
+
+  .footer {
+    .list-inline {
+      margin-bottom: 65px;
+    }
+
+    &-link {
+      text-transform: none;
+    }
+  }
+}
+
+.landing.landing-layout2 {
+  .landing-hero {
+    padding-top: 0;
+    background-position: center;
+    background-size: cover;
+
+    @include breakpoint(tablet) {
+      height: 550px;
+    }
+
+    @include breakpoint(desktop) {
+      height: 720px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    &__container {
+      box-sizing: border-box;
+      padding: 90px 15px;
+
+      @include breakpoint(desktop) {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    }
+
+    &__title,
+    &__subtitle {
+      color: color(white);
+    }
+
+    &__title {
+      @include font(hind, bold);
+    }
+
+    &__subtitle {
+      @include breakpoint(desktop) {
+        @include font-size(80px, 80px);
+      }
+    }
+
+    &__content {
+      width: auto;
+      max-width: 100%;
+      padding: 30px;
+      background: rgba(color(black), 0.4);
+      text-align: center;
+      box-sizing: border-box;
+
+      @include breakpoint(tablet) {
+        width: 400px;
+      }
+
+      @include breakpoint(desktop) {
+        top: 50%;
+        left: 50%;
+        width: 540px;
+        height: 420px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .landing-steps {
+    margin-top: -120px;
+    z-index: 1;
+
+    @include breakpoint(desktop) {
+      margin-top: -140px;
+    }
+
+    &__mobile {
+      margin-top: -60px;
+      z-index: 1;
+
+      @include breakpoint(mobile) {
+        margin-top: -75px;
+      }
+
+      @include breakpoint(tablet) {
+        margin-top: -20px;
+      }
+    }
+  }
+
+  .container {
+    background: transparent;
+  }
+
+  .nav-item a {
+    color: color(white) !important;
+
+    @include breakpoint(tablet) {
+      color: color(white);
+    }
+  }
+
+  .navbar-nonav .nav-item a {
+    strong {
+      border-bottom: 1px solid color(white);
+
+      @include breakpoint(tablet) {
+        border-bottom: 1px solid color(white);
+      }
+    }
+  }
+}
+
+.landing.landing-layout3,
+.landing.landing-layout4 {
+  .landing-hero {
+    height: 100vh;
+    max-height: 200vh;
+    padding-top: 0;
+    background-position: center;
+    background-size: cover;
+
+    @include breakpoint(tablet) {
+      height: 680px;
+      max-height: 680px;
+      background-position: center top;
+      background-size: cover;
+    }
+
+    &__mobile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 100% auto;
+      background-position: center top;
+
+      @include breakpoint(tablet) {
+        display: none;
+      }
+    }
+
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0 15px;
+
+      @include breakpoint(tablet) {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &__title,
+    &__subtitle {
+      color: color(white);
+    }
+
+    &__title {
+      @include font(hind, regular);
+
+      margin-top: 160px;
+      order: 3;
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 1),
+ 0 0 30px rgba(255, 255, 255, 1),
+        3px 0 40px #ffe500,
+ 5px 0 70px #f00,
+ 4px 0 80px #ffd400,
+        4px 0 100px #f00;
+
+      @include breakpoint(tablet) {
+        @include font-size(48px, 48px);
+
+        order: 1;
+        margin-top: 0;
+        padding: 0 20px;
+      }
+    }
+
+    &__subtitle {
+      @include font(hind, regular);
+      @include font-size(24px, 24px);
+
+      order: 4;
+      margin: 25px 0;
+      text-transform: none !important;
+
+      @include breakpoint(tablet) {
+        order: 2;
+      }
+
+      span {
+        @include font(hind, bold);
+
+        clear: both;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      padding: 30px 0;
+      background: none;
+      text-align: center;
+      box-sizing: border-box;
+
+      @include breakpoint(tablet) {
+        width: 550px;
+        padding: 0 100px;
+      }
+    }
+
+    &__terms {
+      @include font-size(12px);
+
+      order: 2;
+      display: block;
+      margin-top: 15px;
+      text-transform: uppercase;
+
+      @include breakpoint(tablet) {
+        @include font-size(16px);
+
+        order: 4;
+      }
+    }
+
+    &__buttons {
+      margin-top: 500px;
+      order: 1;
+
+      @include breakpoint(tablet) {
+        margin-top: 0;
+        order: 3;
+      }
+    }
+
+    .btn-play {
+      @include font-size(24px);
+
+      text-transform: uppercase;
+
+      @include breakpoint(desktop) {
+        @include font-size(36px);
+      }
+    }
+  }
+
+  .container {
+    background: transparent;
+  }
+
+  .navbar {
+    @include breakpoint(desktop) {
+      height: auto;
+    }
+  }
+
+  .navbar-logo {
+    height: 100px;
+
+    @include breakpoint(desktop) {
+      height: 150px;
+    }
+  }
+
+  .nav-item a {
+    color: color(white) !important;
+
+    @include breakpoint(tablet) {
+      color: color(white);
+    }
+  }
+
+  .navbar .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .navbar-nonav .nav-item a {
+    strong {
+      border-bottom: 1px solid color(white);
+
+      @include breakpoint(tablet) {
+        border-bottom: 1px solid color(white);
+      }
+    }
+  }
+}
+
+.landing.landing-layout4 {
+  .landing-hero {
+    text-shadow: 0 0 10px color(red);
+
+    &__content {
+      justify-content: space-between;
+      height: 100%;
+
+      @include breakpoint(tablet) {
+        justify-content: center;
+      }
+    }
+
+    &__title {
+      @include font(hind, bold);
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      flex-grow: 2;
+      margin-top: 160px;
+      text-align: center;
+      order: 1;
+      text-shadow: 0 0 10px color(red);
+
+      @include breakpoint(tablet) {
+        @include font-size(32px, 32px);
+
+        flex-grow: 0;
+        order: 1;
+        margin-top: 0;
+        padding: 0 20px;
+      }
+
+      span {
+        display: block;
+        text-align: center;
+
+        @include breakpoint(tablet) {
+          @include font-size(102px, 102px);
+        }
+      }
+    }
+
+    &__subtitle {
+      order: 2;
+      text-shadow: 0 0 10px color(red);
+    }
+
+    &__buttons {
+      margin-top: 0;
+      order: 3;
+      text-shadow: none;
+    }
+
+    &__terms {
+      order: 4;
+    }
+
+    &__mobile {
+      background-position: center;
+    }
+  }
+}

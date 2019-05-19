@@ -1,0 +1,131 @@
+header .games-masthead-center {
+  padding-top: calc(6rem + 72px);
+  padding-bottom: 6rem;
+
+  @include breakpoint(desktop) {
+    padding-top: calc(4rem);
+    padding-bottom: 4rem;
+  }
+}
+
+header.games-masthead {
+  overflow: hidden;
+  position: relative;
+}
+
+.games-masthead-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-game {
+  &-overlay {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    padding: 0 35px;
+    background-color: rgba(color(black), 0.4);
+    text-align: left;
+
+    @include breakpoint(desktop) {
+      width: 500px;
+      margin: 0 auto;
+      padding: 0;
+      background-color: rgba(color(black), 0.6);
+    }
+
+    h1 {
+      @include font(hind, light);
+      @include font-size(45px, 45px);
+
+      margin: 0;
+      color: color(white);
+
+      @include breakpoint(large) {
+        @include font-size(48px, 48px);
+      }
+    }
+
+    h2 {
+      @include font(hind, regular);
+      @include font-size(20px, 20px);
+
+      margin: 0 0 10px;
+      padding: 0;
+      color: color(white);
+      text-transform: none;
+
+      @include breakpoint(large) {
+        margin: 0 0 15px;
+      }
+    }
+
+    p {
+      @include font(hind, regular);
+      @include font-size(20px);
+
+      margin: 15px 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 5px 0;
+      }
+    }
+
+    .rating {
+      margin: 10px 0;
+      font-style: italic;
+
+      @include breakpoint(large) {
+        margin: 15px 0;
+      }
+    }
+
+    .btn {
+      margin: 10px 0 0;
+
+      @include breakpoint(large) {
+        margin: 15px 0 0;
+      }
+    }
+  }
+
+  &-content {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    margin: 0 20px;
+
+    @include breakpoint(desktop) {
+      top: 50%;
+      bottom: auto;
+      margin: 0 20px;
+      transform: translateY(-50%);
+    }
+
+    @include breakpoint(large) {
+      margin: 0 50px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &-summary {
+    display: none;
+
+    @include breakpoint(mobile) {
+      display: block;
+    }
+  }
+}

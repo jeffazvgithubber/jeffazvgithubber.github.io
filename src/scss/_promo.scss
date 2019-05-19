@@ -1,0 +1,58 @@
+.promo {
+  background: color(black);
+  color: color(white);
+
+  &-item {
+    @include font(hind, regular);
+    @include font-size(28px);
+
+    padding: 12px 0;
+
+    @include breakpoint(desktop) {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    > span {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        content: '';
+      }
+    }
+
+    &__service {
+      padding-left: 50px;
+
+      &::before {
+        width: 40px;
+        background: url('../images/customer-service.png') no-repeat left center;
+        background-size: contain;
+      }
+    }
+
+    &__cash {
+      padding-left: 60px;
+
+      &::before {
+        width: 50px;
+        background: url('../images/win-cash.png') no-repeat left center;
+        background-size: contain;
+      }
+    }
+
+    &__checkout {
+      padding-left: 80px;
+
+      &::before {
+        width: 70px;
+        background: url('../images/fast-checkouts.png') no-repeat left center;
+        background-size: contain;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.hero-overlay {
+  // background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  width: 100%;
+  max-width: 100%;
+  // margin: auto auto;
+  // height: 100%;
+  // padding: 20px 40px;
+}
+
+.hero-overlay-or {
+  margin: 20px;
+}
+
+@media (min-width: 992px) {
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    width: 500px;
+    max-width: 100%;
+    margin: auto auto;
+    height: 100%;
+    padding: 20px 40px;
+  }
+
+  .hero-overlay-or {
+    margin: 20px;
+  }
+}

@@ -1,0 +1,89 @@
+.game-menu {
+  clear: both;
+  min-width: 100%;
+  background-color: color(grey, 900);
+  color: color(white);
+  text-transform: uppercase;
+
+  @include breakpoint(desktop) {
+    display: block;
+  }
+
+  &-single {
+    display: block;
+
+    > div {
+      justify-content: center;
+    }
+  }
+
+  .menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  > div,
+  .menu {
+    display: flex;
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    @include breakpoint(desktop) {
+      justify-content: center;
+    }
+
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      width: 40px;
+      -webkit-box-shadow: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      outline: 1px solid color(grey, 100);
+      background-color: color(primary);
+    }
+  }
+
+  &-item,
+  li {
+    @include font(hind, bold);
+    @include font-size(14px);
+
+    display: inline-block;
+    flex: 0 0 auto;
+    flex-basis: 150px;
+    border-right: 1px solid color(grey, 800);
+    text-align: center;
+
+    @include breakpoint(desktop) {
+      @include font-size(18px);
+
+      flex-basis: 200px;
+    }
+
+    &__link,
+    a {
+      display: block;
+      padding: 30px 0;
+      color: color(white);
+      text-decoration: none;
+
+      &:hover {
+        color: color(yellow, dark) !important;
+      }
+    }
+
+    &.current-menu-item a {
+      color: color(yellow, dark) !important;
+    }
+  }
+}

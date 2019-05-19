@@ -1,0 +1,141 @@
+.testimonials {
+  margin: 50px 0;
+  color: color(secondary);
+
+  @include breakpoint(desktop) {
+    margin: 100px 0;
+  }
+
+  .speech {
+    flex-grow: 2;
+
+    img {
+      width: 100px;
+    }
+
+    h1 {
+      @include font-size(40px);
+
+      margin: 30px 0;
+      color: color(secondary);
+
+      @include breakpoint(desktop) {
+        @include font-size(50px);
+      }
+    }
+
+    p {
+      @include font-size(24px);
+      @include font(hind, light);
+    }
+  }
+
+  .card {
+    display: block;
+    margin: 0 auto 100px;
+    padding: 22px 40px;
+    border: 0;
+    border-radius: 0;
+    background: color(grey, 100);
+    background:
+      -moz-linear-gradient(
+        top,
+        color(white) 0%,
+        color(grey, 200) 100%
+      );
+    background:
+      -webkit-gradient(
+        left top,
+        left bottom,
+        color-stop(0%, color(white)),
+        color-stop(100%, color(grey, 200))
+      );
+    background:
+      -webkit-linear-gradient(
+        top,
+        color(white) 0%,
+        color(grey, 200) 100%
+      );
+    background: -o-linear-gradient(top, color(white) 0%, color(grey, 200) 100%);
+    background:
+      -ms-linear-gradient(
+        top,
+        color(white) 0%,
+        color(grey, 200) 100%
+      );
+    background:
+      linear-gradient(
+        to bottom,
+        color(white) 0%,
+        color(grey, 200) 100%
+      );
+    color: color(secondary);
+
+    @include breakpoint(desktop) {
+      height: 100%;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    &-quote {
+      @include font-size(20px);
+
+      text-align: center;
+      font-style: italic;
+
+      @include breakpoint(desktop) {
+        min-height: 120px;
+      }
+    }
+
+    &-title {
+      @include font-size(30px, 30px);
+
+      margin: 40px 0 15px;
+      color: color(secondary);
+      text-align: center;
+    }
+
+    &-footer {
+      margin: 15px 0 50px;
+      padding: 0 10%;
+      border: 0;
+      background: none;
+      text-align: center;
+
+      @include breakpoint(desktop) {
+        margin: 15px 0 100px;
+      }
+    }
+
+    &-icon {
+      display: flex;
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      padding: 25px;
+      border-radius: 100%;
+      background: color(secondary);
+      text-align: center;
+      transform: translateX(-50%);
+
+      &__icon {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .footnote {
+    display: block;
+    text-align: center;
+
+    @include breakpoint(desktop) {
+      margin-top: 100px;
+    }
+  }
+}

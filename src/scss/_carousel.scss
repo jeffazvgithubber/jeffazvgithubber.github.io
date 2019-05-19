@@ -1,0 +1,149 @@
+.carousel {
+  width: 100%;
+  padding-bottom: 75%;
+
+  @include breakpoint(desktop) {
+    padding-bottom: 30%;
+  }
+
+  &-inner {
+    position: absolute;
+    height: 100%;
+  }
+
+  &-content {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  &-item {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &-title {
+    @include font-size(40px, 40px);
+    @include font(hind, bold);
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    color: color(yellow, dark);
+    text-align: left;
+    vertical-align: text-bottom;
+    max-width: 220px;
+    text-shadow: 0 0 15px color(yellow, light);
+
+    @include breakpoint(tablet) {
+      @include font-size(74px, 74px);
+
+      left: 25px;
+      max-width: 400px;
+    }
+
+    span {
+      @include font(hind, medium);
+
+      display: block;
+      clear: both;
+    }
+
+    &__white {
+      color: color(white);
+      text-shadow: 2px 0 15px color(white);
+    }
+  }
+
+  &-button {
+    @include font-size(18px, 40px);
+    @include font(hind, bold);
+
+    display: block;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    height: 40px;
+    padding: 0 10px;
+    background: color(red);
+    color: color(white);
+    text-align: center;
+    line-height: 40px;
+
+    @include breakpoint(desktop) {
+      @include font-size(30px, 50px);
+
+      right: 25px;
+      height: 50px;
+      padding: 0 100px;
+      line-height: 50px;
+    }
+
+    &:hover {
+      color: color(white);
+      text-decoration: none;
+    }
+  }
+
+  &-control-next,
+  &-control-prev {
+    display: none;
+    top: 50%;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    background-color: color(black);
+    transform: translateY(-50%);
+
+    @include breakpoint(desktop) {
+      display: flex;
+    }
+
+    &-icon {
+      width: 25px;
+      height: 25px;
+      padding: 0;
+      vertical-align: middle;
+    }
+  }
+
+  &-control-next {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &-icon {
+      background-image: url('../images/next.png');
+      background-size: contain;
+    }
+  }
+
+  &-control-prev {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &-icon {
+      background-image: url('../images/prev.png');
+      background-size: contain;
+    }
+  }
+
+  &-indicators {
+    display: flex;
+    left: auto;
+    margin: 0 20px 10px 0;
+    justify-content: flex-end;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+
+    li {
+      width: 12px;
+      height: 12px;
+      border-radius: 12px;
+    }
+  }
+}

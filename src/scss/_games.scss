@@ -1,0 +1,507 @@
+/**
+please note because the current implementation of the jquery bootrap carousel
+the TRANSITION_DURATION is baked into the js and does not appear to be
+changeable without manipulating the js
+
+*/
+$time: 0.6s;
+$rightReelAnimation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$tabletPlusCarouselItemHeight: 200px;
+
+$jpReelImageWidth: 1619;
+$aspectRatio: (980 / $jpReelImageWidth) * 100%;
+
+$machineWidth: 652px;
+
+.games {
+  overflow: hidden;
+  padding-top: 20px;
+  margin: 0;
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    padding: 82px 0 42px 0;
+    margin-bottom: -82px;
+  }
+
+  &-grand-jackpot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: url('../images/jackpot-ticker.png') no-repeat center;
+    background-size: contain;
+
+    span {
+      @include font(digital, regular);
+      @include font-size(18px);
+
+      display: block;
+      margin-bottom: 0;
+      padding: 12% 0 10px;
+      color: color(red);
+
+      @include breakpoint(tablet) {
+        @include font-size(35px);
+
+        padding: 7.5% 0 0;
+      }
+
+      @include breakpoint(desktop) {
+        @include font-size(45px);
+      }
+    }
+  }
+
+  &-jackpot-headline {
+    margin-top: 5px;
+    padding-bottom: 50px;
+
+    @include breakpoint(desktop) {
+      padding-bottom: 40px;
+    }
+
+    @include breakpoint(widescreen) {
+      padding-bottom: 60px;
+    }
+  }
+
+  &-jackpot {
+    @include breakpoint(tablet) {
+      background: url('../images/jackpot-api-bg.png') no-repeat center bottom;
+      background-size: cover;
+    }
+
+    @media (min-width: 1800px) {
+      background-size: 100% 500px;
+    }
+
+    .container {
+      padding: 0;
+
+      @include breakpoint(tablet, max-width) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &-image {
+    display: block;
+  }
+
+  &-rightReel {
+    transform: translate3d(0, 140%, 0);
+    @include font(digital, regular);
+    @include font-size(30px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 47%;
+    color: color(red);
+
+    @include breakpoint(tablet) {
+      @include font-size(45px);
+
+      width: 306px;
+    }
+
+    &__logo {
+      display: block;
+
+      img {
+        width: 30vw;
+
+        @include breakpoint(tablet) {
+          width: 200px;
+        }
+      }
+    }
+
+    &__jp_type {
+      display: block;
+      height: 15%;
+      width: 90%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+
+      &--grand {
+        background-image: url('../images/jackpot_types/grand.png');
+      }
+
+      &--fireShot {
+        background-image: url('../images/jackpot_types/fireShot.png');
+      }
+    }
+  }
+
+  &-leftReel {
+    opacity: 0;
+    //transition: opacity $time ease-in-out;
+    display: block;
+    position: relative;
+    height: 100%;
+    margin: 0 0 0 (258 / $jpReelImageWidth) * 100%;
+    width: (329 / $jpReelImageWidth) * 100%;
+
+    @include breakpoint(tablet) {
+      margin: 0 0 0 103px;
+    }
+
+    img {
+      max-height: 100%;
+    }
+  }
+
+  &-gallery {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__overlay {
+      background-image: url('../images/jackpotmachine/jackpot-reel-carousel-overlay.png');
+      background-image:
+        -webkit-image-set(
+          url('../images/jackpotmachine/jackpot-reel-carousel-overlay-sm.png') 1x,
+          url('../images/jackpotmachine/jackpot-reel-carousel-overlay.png') 2x
+        );
+      background-image:
+        image-set(
+          url('../images/jackpotmachine/jackpot-reel-carousel-overlay-sm.png') 1x,
+          url('../images/jackpotmachine/jackpot-reel-carousel-overlay.png') 2x
+        );
+      background-repeat: no-repeat;
+      background-position: center;
+
+      //maintain aspect ratio
+      width: 100vw;
+      padding-top: $aspectRatio;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+
+      @include breakpoint(tablet) {
+        width: $machineWidth;
+      }
+    }
+  }
+
+  &-summary {
+    @include font-size(20px);
+    @include font(hind, regular);
+
+    width: 100%;
+    margin: 10px auto;
+    color: color(white);
+
+    @include breakpoint(desktop) {
+      @include font-size(16px);
+
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100%;
+      margin: 20px 0;
+      color: color(white);
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+
+    @include breakpoint(large) {
+      @include font-size(20px);
+    }
+
+    &__title {
+      @include font-size(30px);
+      @include font(hind, semibold);
+
+      margin: 0 auto;
+      color: color(white);
+
+      @include breakpoint(desktop) {
+        @include font-size(24px);
+      }
+
+      @include breakpoint(widescreen) {
+        @include font-size(30px);
+      }
+    }
+  }
+
+  .winner {
+    &-game {
+      display: block;
+      margin-top: 7px;
+
+      @include breakpoint(large) {
+        margin-top: 12px;
+      }
+    }
+
+    &-title {
+      @include font(hind, medium);
+
+      &__amount {
+        @include font(hind, regular);
+
+        color: color(green, light);
+      }
+    }
+
+    &__winner {
+    }
+  }
+
+  .carousel {
+    overflow: hidden;
+
+    /* maintain aspect ratio */
+    width: 100vw;
+    padding: $aspectRatio 0 0 0;
+    margin: 0 auto;
+    background-image: url('../images/jackpotmachine/jackpot-reel-carousel-backing.png');
+    background-image:
+      -webkit-image-set(
+        url('../images/jackpotmachine/jackpot-reel-carousel-backing-sm.png') 1x,
+        url('../images/jackpotmachine/jackpot-reel-carousel-backing.png') 2x
+      );
+    background-image:
+      image-set(
+        url('../images/jackpotmachine/jackpot-reel-carousel-backing-sm.png') 1x,
+        url('../images/jackpotmachine/jackpot-reel-carousel-backing.png') 2x
+      );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include breakpoint(tablet) {
+      width: $machineWidth;
+      height: 395px;
+      padding: 0;
+    }
+
+    &-inner {
+      position: absolute;
+      top: 42.9%;
+      height: 53%;
+    }
+
+    &-item {
+      display: block;
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+      height: 100%;
+      background: transparent;
+
+      @include breakpoint(tablet) {
+        height: $tabletPlusCarouselItemHeight;
+      }
+
+      &.carousel-item-next,
+      &.active.carousel-item-right,
+      &.carousel-item-prev,
+      &.active.carousel-item-left,
+      &.carousel-item-prev.carousel-item-right,
+      &.active {
+        transform: none;
+        top: 0;
+      }
+
+      &.active {
+        .games-rightReel {
+          transform: translate3d(0, 0, 0);
+        }
+
+        .games-leftReel {
+          opacity: 1;
+        }
+      }
+      //when using the right navigation button
+      &.carousel-item-next.carousel-item-left {
+        .games-rightReel {
+          animation: slideUpAndIn $time $rightReelAnimation forwards;
+        }
+
+        .games-leftReel {
+          animation: fadein $time $rightReelAnimation forwards;
+        }
+      }
+
+      &.active.carousel-item-left {
+        .games-rightReel {
+          animation: slideUpAndOut $time $rightReelAnimation forwards;
+        }
+
+        .games-leftReel {
+          animation: fadeout $time $rightReelAnimation forwards;
+        }
+      }
+
+      //when using the left navigaiton buttons
+      &.carousel-item-prev.carousel-item-right {
+        .games-rightReel {
+          animation: slideDownAndIn $time $rightReelAnimation forwards;
+        }
+
+        .games-leftReel {
+          animation: fadein $time $rightReelAnimation forwards;
+        }
+      }
+
+      &.active.carousel-item-right {
+        .games-rightReel {
+          animation: slideDownAndOut $time $rightReelAnimation forwards;
+        }
+
+        .games-leftReel {
+          animation: fadeout $time $rightReelAnimation forwards;
+        }
+      }
+
+      a {
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+      }
+    }
+
+    &-control-prev,
+    &-control-next {
+      display: flex;
+      top: 65%;
+      background: none;
+      transform: translateY(-39%);
+      width: 7%;
+      height: 10%;
+    }
+
+    &-control-prev {
+      left: 4%;
+
+      @include breakpoint(tablet) {
+        left: 30px;
+      }
+
+      &-icon {
+        background: url('../images/green-arrows.png') no-repeat left center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-control-next {
+      right: 4%;
+
+      @include breakpoint(tablet) {
+        right: 30px;
+      }
+
+      &-icon {
+        background: url('../images/green-arrows.png') no-repeat right center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-image__small {
+    margin-bottom: 10px;
+  }
+
+  .row {
+    margin: 0 -5px;
+  }
+
+  .col-lg-4 {
+    margin-bottom: 10px;
+  }
+
+  div[class*='col-'] {
+    padding: 0 5px;
+  }
+}
+
+.games img {
+  max-width: 100%;
+}
+
+.game-menu-item a {
+  color: white;
+}
+
+.game-menu-item a:hover {
+  text-decoration: none;
+}
+
+.game-menu-item a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpAndOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -140%, 0);
+  }
+}
+
+@keyframes slideUpAndIn {
+  from {
+    transform: translate3d(0, 140%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideDownAndOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 140%, 0);
+  }
+}
+
+@keyframes slideDownAndIn {
+  from {
+    transform: translate3d(0, -140%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

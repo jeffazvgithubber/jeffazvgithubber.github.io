@@ -1,0 +1,36 @@
+.faq {
+  &-title {
+    @include font-size(36px);
+  }
+
+  &-headline {
+    @include font-size(36px);
+  }
+
+  .card {
+    border: 0;
+
+    &-header {
+      padding: 10px 0;
+      background: none;
+      border: 0;
+      cursor: pointer;
+
+      h4 {
+        @include font(hind, regular);
+
+        margin: 0;
+        padding: 0 0 3px;
+        border-bottom: 1px solid color(grey, 700);
+        text-transform: none;
+      }
+    }
+
+    &-body {
+      @include font-size(18px);
+
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

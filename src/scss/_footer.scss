@@ -1,0 +1,183 @@
+#social-links {
+  display: block;
+  padding: 0;
+}
+
+#social-links a {
+  display: table-cell;
+  padding: 8px 20px;
+}
+
+@media (max-width: 950px) {
+  .responsible-gaming-wide {
+    display: block;
+  }
+}
+
+.responsible-gaming-link-wide {
+  display: none;
+  font-size: 16px;
+}
+
+.responsible-gaming-link-wide a {
+  display: block;
+  padding: 9px 0 0 0;
+  text-align: center;
+}
+
+.responsible-gaming-link {
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 31em) {
+  .responsible-gaming-link-wide {
+    display: block;
+    text-align: center;
+  }
+
+  .responsible-gaming-link {
+    display: none;
+  }
+}
+
+.footer {
+  padding: 80px 0 200px;
+  background-color: color(black);
+  color: color(white);
+  color: #c5c1c0;
+
+  a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #c3c3c3;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    font-weight: bold;
+    padding-left: 0;
+
+    li {
+      display: inline;
+      height: 80px;
+      margin: 0 5px 0 10px;
+
+      a {
+        width: 100px;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.malta-gaming-warning {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.mg-footer-item {
+  padding: 0 10px 10px 10px;
+  max-width: 80px;
+
+  &.footer-item-text {
+    max-width: none;
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.copyright-text {
+  text-align: justify;
+  padding-top: 10px;
+  color: #555;
+}
+
+.legal-window-wrap {
+  ol {
+    counter-reset: item;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    li {
+      display: block;
+      padding-bottom: 10px;
+
+      &::before {
+        content: counters(item, '.') '. ';
+        counter-increment: item;
+      }
+    }
+
+    &[type='a'] li::before {
+      content: '(' counter(item, lower-alpha) ') ';
+    }
+  }
+
+  ul {
+    &[type='circle'] li::before {
+      content: counter(item, circle) ' ';
+    }
+
+    counter-reset: item;
+  }
+
+  ol.privacy {
+    counter-reset: item 5;
+  }
+}
+
+.legal-window-wrap ol[style*='list-style-type: decimal;'] > li::before {
+  content: counters(item, '.') '. ';
+  counter-increment: item;
+}
+.legal-window-wrap ol[style*='list-style-type: lower-alpha;'] > li::before {
+  content: counter(item, lower-alpha) '.) ';
+}
+.legal-window-wrap ol[style*='list-style-type: lower-greek;'] > li::before {
+  content: counter(item, lower-greek) '.) ';
+}
+.legal-window-wrap ol[style*='list-style-type: lower-roman;'] > li::before {
+  content: counter(item, lower-roman) '.) ';
+}
+.legal-window-wrap ol[style*='list-style-type: upper-alpha;'] > li::before {
+  content: counter(item, upper-alpha) '.) ';
+}
+.legal-window-wrap ol[style*='list-style-type: upper-roman;'] > li::before {
+  content: counter(item, upper-roman) '.) ';
+}
+
+.legal-window-wrap ul[style*='list-style-type: square;'] > li::before {
+  content: counter(item, square) ' ';
+}
+
+.legal-window-wrap ul[style*='list-style-type: disc;'] > li::before {
+  content: counter(item, disc) ' ';
+}
+
+.legal-window-wrap ul[style*='list-style-type: circle;'] > li::before {
+  content: counter(item, circle) ' ';
+}

@@ -3,20 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import SectionGameGalleryItem from './SectionGameGalleryItem'
 
 
-// $image = '<div class="col-md-2 col-sm-6 col-6">';
-// $image .= '<a href="'.get_permalink().'" class="games-image games-image__small">';
-// $image .= getACFResponsiveImage('medium_icon');
-// $image .= '</a>';
-// $image .= '</div>';
-
-// GalleryItemQuery.defaultProps = {
-//   wordpressId: -1,
-// }
-
-// GalleryItemQuery.propTypes = {
-//   wordpressId: PropTypes.number,
-// }
-
 const SectionGameGalleryWrapper = ({ data }) => {
   console.log(data)
   return (

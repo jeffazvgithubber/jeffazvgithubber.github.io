@@ -75,6 +75,7 @@ module.exports = {
         theme_color: `#a2466c`,
         display: `standalone`,
         icon: `src/img/icon.png`,
+        gcm_sender_id: "482941778795",
       },
     },
     `gatsby-plugin-offline`,

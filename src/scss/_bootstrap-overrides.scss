@@ -1,0 +1,61 @@
+body {
+  background: url('../images/blog-bg-pattern.jpg') repeat;
+}
+
+.container {
+}
+
+// Bootstrap overrides for this template
+a {
+  color: color(primary);
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: color(primary);
+  }
+}
+
+.btn {
+  border-width: 2px;
+}
+
+.bg-primary {
+  background-color: color(primary) !important;
+}
+
+.bg-secondary {
+  background-color: color(secondary) !important;
+}
+
+.text-primary {
+  color: color(primary);
+}
+
+.text-secondary {
+  color: color(secondary);
+}
+
+.btn-primary {
+  border-color: color(primary);
+  background-color: color(primary);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: color(primary);
+    border-color: color(primary);
+  }
+}
+
+.btn-secondary {
+  background-color: color(secondary);
+  border-color: color(secondary);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: color(secondary);
+    border-color: color(secondary);
+  }
+}

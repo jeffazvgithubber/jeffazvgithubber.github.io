@@ -1,0 +1,41 @@
+.chumba {
+  margin-bottom: 0;
+  padding: 50px 0;
+  background: color(grey, 200);
+
+  @include breakpoint(desktop) {
+    margin-bottom: 0;
+    padding: 100px 0;
+  }
+
+  &-title {
+    @include font-size(40px);
+
+    margin: 0;
+    padding: 0;
+    color: color(grey, 900);
+
+    @include breakpoint(desktop) {
+      @include font-size(50px);
+
+      margin: 250px 0 0;
+    }
+  }
+
+  &-card {
+    @include font-size(22px);
+
+    color: color(grey, 900);
+
+    &-icon {
+      display: block;
+      margin: 50px 50px 25px;
+      padding-bottom: 100px;
+
+      @include breakpoint(desktop) {
+        margin: 25px 50px;
+        padding-bottom: 200px;
+      }
+    }
+  }
+}

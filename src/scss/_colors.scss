@@ -1,0 +1,35 @@
+$colors: (
+  primary: #ffc600,
+  secondary: #0c1c31,
+  white: #fff,
+  black: #000,
+  yellow: (
+    light: #ffec00,
+    dark: #d89e2f
+  ),
+  facebook: #3b5998,
+  red: #f00,
+  green: (
+    light: #70dd31,
+    dark: #47c11f
+  ),
+  grey: (
+    100: #f8f9fa,
+    200: #e9ecef,
+    300: #dee2e6,
+    400: #ced4da,
+    500: #adb5bd,
+    600: #868e96,
+    700: #495057,
+    800: #343a40,
+    900: #212529
+  ),
+  pink: (
+    light: #fd3b45,
+    dark: #fc262c
+  ),
+  blue: (
+    light: #eff7ff,
+    default: #bacbed
+  )
+);

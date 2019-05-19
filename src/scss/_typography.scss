@@ -1,0 +1,43 @@
+body {
+  @include font(hind, regular);
+
+  color: color(grey, 700);
+  font-size: $font-size-base;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @include font(hind, bold);
+
+  color: color(grey, 700);
+  text-transform: uppercase;
+}
+
+.container {
+  clear: both;
+
+  @include breakpoint(mobile) {
+    max-width: $container-max-width-sm;
+  }
+
+  @include breakpoint(tablet) {
+    max-width: $container-max-width-md;
+  }
+
+  @include breakpoint(desktop) {
+    max-width: $container-max-width-lg;
+  }
+
+  @include breakpoint(large) {
+    max-width: $container-max-width-xl;
+  }
+
+  @include breakpoint(widescreen) {
+    max-width: $container-max-width-wd;
+  }
+}

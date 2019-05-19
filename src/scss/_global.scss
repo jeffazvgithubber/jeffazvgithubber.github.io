@@ -1,0 +1,279 @@
+// Typography
+input[type='text'] {
+  background: #f2f2f2 !important;
+  border: 0 !important;
+  text-indent: 2px !important;
+  color: #666 !important;
+  border-radius: 3px !important;
+}
+
+input[type='email'] {
+  background: #f2f2f2 !important;
+  border: 0 !important;
+  text-indent: 2px !important;
+  color: #666 !important;
+  border-radius: 3px !important;
+}
+
+.bootstrap-filestyle {
+  margin-top: 10px;
+}
+
+textarea {
+  background: #f2f2f2 !important;
+  border: 0 !important;
+  text-indent: 2px !important;
+  color: #666 !important;
+  border-radius: 3px !important;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #aaa !important;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #aaa !important;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #aaa !important;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #aaa !important;
+}
+
+.disqus {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.anchor {
+  display: block;
+  visibility: hidden;
+  position: relative;
+  top: -5rem;
+}
+
+p {
+  display: block;
+
+  .small {
+    @include font-size(14px);
+    @include font(hind, light);
+  }
+}
+
+.section {
+  margin: 50px 0;
+
+  @include breakpoint(desktop) {
+    margin: 100px 0;
+  }
+
+  &-small {
+    margin: 20px 0;
+
+    @include breakpoint(desktop) {
+      margin: 50px 0;
+    }
+
+    &-strategy {
+      div[class*='col'] {
+        margin-bottom: 30px;
+
+        @include breakpoint(desktop) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.about-faq {
+      margin-bottom: 0;
+      padding: 50px;
+      background: color(grey, 200);
+
+      @include breakpoint(desktop) {
+        margin-bottom: 0;
+        padding: 100px;
+      }
+
+      h1,
+      strong {
+        color: color(grey, 900);
+      }
+
+      h3 {
+        margin-top: 30px;
+      }
+
+      p {
+        color: color(grey, 700);
+      }
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.color-white {
+  color: color(white);
+}
+
+@for $i from 0 through 20 {
+  $j: $i * 5;
+
+  .m-#{$j} {
+    margin: $j + px !important;
+  }
+
+  .m-l-#{$j} {
+    margin-left: $j + px !important;
+  }
+
+  .m-r-#{$j} {
+    margin-right: $j + px !important;
+  }
+
+  .m-t-#{$j} {
+    margin-top: $j + px !important;
+  }
+
+  .m-b-#{$j} {
+    margin-bottom: $j + px !important;
+  }
+
+  .p-#{$j} {
+    padding: $j + px !important;
+  }
+
+  .p-l-#{$j} {
+    padding-left: $j + px !important;
+  }
+
+  .p-r-#{$j} {
+    padding-right: $j + px !important;
+  }
+
+  .p-t-#{$j} {
+    padding-top: $j + px !important;
+  }
+
+  .p-b-#{$j} {
+    padding-bottom: $j + px !important;
+  }
+}
+
+.content-center {
+  margin: 0 auto;
+}
+
+// Custom Horizontal Rule with Star Icon
+hr.star-light,
+hr.star-dark {
+  max-width: 15rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-top: solid 0.25rem;
+  text-align: center;
+}
+
+hr.star-light::after,
+hr.star-dark::after {
+  position: relative;
+  top: -0.8em;
+  display: inline-block;
+  padding: 0 0.25em;
+  content: '\f005';
+  font-family: FontAwesome, Arial, Helvetica, sans-serif;
+  font-size: 2em;
+}
+
+hr.star-light {
+  border-color: color(white);
+}
+
+hr.star-light::after {
+  color: color(white);
+  background-color: color(primary);
+}
+
+hr.star-dark {
+  border-color: color(secondary);
+}
+
+hr.star-dark::after {
+  color: color(secondary);
+  background-color: white;
+}
+
+// Section Padding Settings
+section {
+  padding: 6rem 0;
+
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2rem;
+
+    @include breakpoint(desktop) {
+      font-size: 3rem;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+// Custom Button Size
+.btn-xl {
+  padding: 1rem 1.75rem;
+  font-size: 1.25rem;
+}
+
+// Custom Rounded Social Button
+.btn-social {
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+  z-index: 1042;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+
+  a {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: fade-out($gray-900, 0.5);
+    line-height: 3.1rem;
+  }
+}
+
+.rating {
+  font-style: italic;
+}
+
+.star {
+  @include font-size(15px, 15px);
+
+  display: inline-block;
+  color: color(primary);
+
+  @include breakpoint(large) {
+    @include font-size(20px, 20px);
+  }
+
+  &.empty {
+    color: color(white);
+  }
+}

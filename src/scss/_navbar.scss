@@ -1,0 +1,228 @@
+.sub-menu {
+  @include font-size(16px);
+  @include font(hind, light);
+
+  display: none;
+  background-color: color(secondary);
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+
+  @include breakpoint(desktop) {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    padding: 32px 24px;
+    width: 250px;
+  }
+
+  a {
+    display: block;
+    color: color(white);
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: color(primary);
+  }
+
+  li {
+    color: color(white);
+    padding: 8px 0;
+  }
+
+  .menu-item:hover & {
+    display: block;
+  }
+}
+
+.navpad {
+  display: block;
+  height: 60px;
+
+  @include breakpoint(desktop) {
+    height: 85px;
+  }
+}
+
+.navbar {
+  @include breakpoint(desktop) {
+    height: 85px;
+    padding: 0;
+  }
+
+  & .container {
+    max-width: none;
+
+    @include breakpoint(desktop) {
+      display: flex;
+      max-width: $container-max-width-wd;
+    }
+  }
+
+  &__home {
+    flex: 1 1 87px;
+
+    @include breakpoint(desktop) {
+      flex: none;
+    }
+  }
+
+  &__right {
+    display: inline-flex;
+    flex: 1 1 200px;
+
+    @include breakpoint(desktop) {
+      display: block;
+      flex: none;
+    }
+  }
+
+  &__btn {
+    padding: 0;
+    width: 100%;
+    margin-left: 0.5rem;
+  }
+
+  &-shrink {
+    min-height: 65px;
+  }
+
+  &-expand-lg {
+    &.navbar-shrink {
+      height: auto !important;
+    }
+  }
+
+  &-logo {
+    display: block;
+    height: 45px;
+    padding: 2px 0 4px;
+    transition: height 0.1s;
+
+    @include breakpoint(desktop) {
+      height: 85px;
+      padding: 8px 0 10px;
+    }
+
+    .navbar-shrink & {
+      @include breakpoint(desktop) {
+        height: 65px;
+      }
+    }
+  }
+
+  &-nav > .menu-item {
+    margin: 0 4px;
+
+    @include breakpoint(desktop) {
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+    }
+
+    &.menu-item-has-children {
+      position: relative;
+    }
+
+    > a {
+      display: block;
+      padding: 16px;
+    }
+
+    .btn {
+      @include breakpoint(desktop) {
+        margin-top: 1px;
+      }
+    }
+  }
+}
+
+// Styling for the navbar
+#mainNav {
+  .navbar-brand {
+    color: color(white);
+  }
+
+  .navbar-nav {
+    margin-top: 1rem;
+    letter-spacing: 0.0625rem;
+
+    .menu-item {
+      a {
+        white-space: nowrap;
+        color: color(white);
+
+        &:hover,
+        &:active,
+        &:focus,
+        &.active {
+          color: color(primary);
+        }
+      }
+
+      &.current-menu-item > a,
+      &.current-menu-parent > a,
+      &.current-menu-parent .current-menu-item a {
+        color: color(primary);
+      }
+
+      div.menu-item {
+        white-space: nowrap;
+        color: color(white);
+      }
+    }
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+    // padding: 0.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    // padding-top: 0.5rem;
+    // padding-bottom: 0.5rem;
+    // -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    // -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+    // transition: padding-top 0.3s, padding-bottom 0.3s;
+    .navbar-brand {
+      font-size: 2em;
+      -webkit-transition: font-size 0.3s;
+      -moz-transition: font-size 0.3s;
+      transition: font-size 0.3s;
+    }
+
+    .navbar-nav {
+      margin-top: 0;
+    }
+  }
+
+  #mainNav.navbar-shrink {
+    .navbar-brand {
+      font-size: 1.5em;
+    }
+
+    .menu-item {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+      -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+    }
+
+    .menu-item a {
+      padding-top: 0.2rem !important;
+      padding-bottom: 0.2rem !important;
+      -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+      -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+    }
+
+    .nav-logo {
+      height: 1.5rem;
+      -webkit-transition: height 0.3s;
+      -moz-transition: height 0.3s;
+      transition: height 0.3s;
+    }
+  }
+}

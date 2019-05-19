@@ -18,17 +18,24 @@ export const GameTemplate = ({ title, data }) => {
   console.log(data)
   return (
     <Fragment>
-      <h2 className="title is-size-3 has-text-weight-bold is-bold-light" dangerouslySetInnerHTML={{ __html: title }} />      
+      <h2
+        className="title is-size-3 has-text-weight-bold is-bold-light"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       <Link to="casino-games">Back to Games</Link>
       <div dangerouslySetInnerHTML={{ __html: data.acf.description }} />
-      <StyledImg
-        key={data.slug}
-        fluid={data.acf.hero_image.localFile.childImageSharp.fluid}
-      />
-      <StyledImg
-        key={data.slug}
-        fluid={data.acf.medium_icon.localFile.childImageSharp.fluid}
-      />
+      {data.acf.hero_image && (
+        <StyledImg
+          key={data.slug}
+          fluid={data.acf.hero_image.localFile.childImageSharp.fluid}
+        />
+      )}
+      {data.acf.medium_icon && (
+        <StyledImg
+          key={data.slug}
+          fluid={data.acf.medium_icon.localFile.childImageSharp.fluid}
+        />
+      )}
       {data.acf.game_logo && (
         <StyledImg
           key={data.slug}
@@ -51,7 +58,7 @@ export const GameTemplate = ({ title, data }) => {
             fluid={paytableObj.localFile.childImageSharp.fluid}
           />
         ))}
-    <Link to="casino-games">Back to Games</Link>
+      <Link to="casino-games">Back to Games</Link>
     </Fragment>
   )
 }

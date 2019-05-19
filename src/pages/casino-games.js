@@ -21,15 +21,18 @@ const StyledImg = styled(Img)`
 const AllGamesPage = () => (
   <Layout>
     <MainCenteredArea>      
-      <h2 className="title is-size-3 has-text-weight-bold is-bold-light">ALL GAMES PAGE</h2>
+      <h2 className="title is-size-3 has-text-weight-bold is-bold-light">ALL GAMES PAGE!</h2>
       <StaticAllGames />
     </MainCenteredArea>
   </Layout>
 )
 const SectionGameGalleryItemWrapper = ({ data }) => {
+  const filteredResults = data.filter(
+    ( {node} ) => (node && node.acf && node.acf.medium_icon && node.acf.medium_icon.localFile)
+  )
   return (
     <div className="col-md-2 col-sm-6 col-6">
-      {data.map(({ node }) => {
+      {filteredResults.map(({ node }) => {
         return (
           <Link key={node.slug} to={node.custom_permalink}>
             <StyledImg
