@@ -80,7 +80,7 @@ class NotificationsForm extends PureComponent {
         return;
       }
       this.OneSignal.init({
-        appId: '1a5a3a21-f5d1-4a88-a3ab-f8219fbbacea',
+        appId: '500cf963-640a-4c2b-ba43-cb53f247b8d2',
         autoResubscribe: true,
         notifyButton: {
           enable: false,
