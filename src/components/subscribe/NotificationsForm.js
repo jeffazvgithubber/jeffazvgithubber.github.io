@@ -5,6 +5,7 @@ class NotificationsForm extends PureComponent {
     super(props);
     this.state = {
       permission: 'default',
+      isPushNotificationsSupported: false
     };
   }
   componentDidMount() {
@@ -46,7 +47,10 @@ class NotificationsForm extends PureComponent {
     }
   };
   render() {
-    const { permission } = this.state;
+    const { permission, isPushNotificationsSupported } = this.state;
+    if (!isPushNotificationsSupported) {
+      return <div></div>;
+    }
     return (
       <div>
         <S.SubSection>
@@ -79,6 +83,7 @@ class NotificationsForm extends PureComponent {
       if (!this.OneSignal.isPushNotificationsSupported()) {
         return;
       }
+      
       this.OneSignal.init({
         appId: '500cf963-640a-4c2b-ba43-cb53f247b8d2',
         autoResubscribe: true,
@@ -93,10 +98,12 @@ class NotificationsForm extends PureComponent {
     });
   };
   updateManageWebPushSubscriptionButton = async () => {
+    
     try {
       const state = await this.OneSignal.getNotificationPermission();
       this.setState({
         permission: state,
+        isPushNotificationsSupported: true,
       });
     } catch (error) {
       console.error('Error getting notification status', error);
