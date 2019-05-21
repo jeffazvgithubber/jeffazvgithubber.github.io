@@ -3,7 +3,7 @@ module.exports = {
     title: 'Chumba Casino',
     description :'Description',
     author : 'Chumba Casino',
-    siteUrl: `http://jeffazvgithubber.github.io`,
+    siteUrl: `https://jeffazvgithubber.github.io`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -39,10 +39,10 @@ module.exports = {
           
           
         ],
-        // searchAndReplaceContentUrls: {
-        //   sourceUrl: "http://localhost:8000",
-        //   replacementUrl: "http://localhost:8001",
-        // }
+        searchAndReplaceContentUrls: {
+          sourceUrl: "http://localhost:8000",
+          replacementUrl: "https://jeffazvgithubber.github.io",
+        }
       },
     },
     'gatsby-plugin-sharp',

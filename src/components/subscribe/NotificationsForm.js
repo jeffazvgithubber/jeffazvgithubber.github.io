@@ -64,14 +64,19 @@ class NotificationsForm extends PureComponent {
   onSubscriptionBtnClick = event => {
     console.log("clicked");
     this.getSubscriptionState().then(state => {
+      console.log("state.isPushEnabled" + state.isPushEnabled);
+      console.log("state.isOptedOut" + state.isOptedOut);
       if (state.isPushEnabled) {
         /* Subscribed, opt them out */
+        console.log("setSubscription false"); 
         this.OneSignal.setSubscription(false);
       } else {
         if (state.isOptedOut) {
+          console.log("setSubscription true");
           /* Opted out, opt them back in */
           this.OneSignal.setSubscription(true);
         } else {
+          console.log("registerForPushNotifications");
           /* Unsubscribed, subscribe them */
           this.OneSignal.registerForPushNotifications();
         }
@@ -91,6 +96,10 @@ class NotificationsForm extends PureComponent {
         notifyButton: {
           enable: false,
         },
+        welcomeNotification: {
+          "title": "My Custom Title",
+          "message": "Thanks for subscribing!",
+        }
       });
       this.updateManageWebPushSubscriptionButton();
       this.OneSignal.on('subscriptionChange', function() {
