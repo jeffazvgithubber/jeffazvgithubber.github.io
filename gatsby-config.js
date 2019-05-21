@@ -39,10 +39,10 @@ module.exports = {
           
           
         ],
-        searchAndReplaceContentUrls: {
-          sourceUrl: "http://localhost:8000",
-          replacementUrl: "https://jeffazvgithubber.github.io",
-        }
+        // searchAndReplaceContentUrls: {
+        //   sourceUrl: "http://localhost:8000",
+        //   replacementUrl: "https://jeffazvgithubber.github.io",
+        // }
       },
     },
     'gatsby-plugin-sharp',
