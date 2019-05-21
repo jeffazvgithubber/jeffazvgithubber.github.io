@@ -3,7 +3,7 @@ module.exports = {
     title: 'Chumba Casino',
     description :'Description',
     author : 'Chumba Casino',
-    siteUrl: `http://10.1.222.150:9000`,
+    siteUrl: `http://jeffazvgithubber.github.io`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -22,7 +22,7 @@ module.exports = {
         useACF: true,
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
-        verboseOutput: true,
+        verboseOutput: false,
         includedRoutes: [
           "**/games",
           "**/posts",
@@ -60,8 +60,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        showSpinner: false,
-        trickle: false,
+        showSpinner: true,
+        trickle: true,
         minimum: 0.4,
       },
     },

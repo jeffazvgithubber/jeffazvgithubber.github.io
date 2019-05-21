@@ -10,7 +10,7 @@ import Navbar from './Navbar'
 
 const JackpotLoadable = Loadable({
   loader : () => import('./JackpotCarousel'),
-  loading : () => <div>Loading.asfaf..</div>
+  loading : () => <div>Loading...</div>
 })
 
 const Layout = ({ children }) => (
