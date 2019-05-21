@@ -26,6 +26,8 @@ const SectionChumbaWrapper = ({ data }) => {
                         }}
                       />
                       <p dangerouslySetInnerHTML={{ __html: column.text }} />
+                      <p>new content</p>
+                      <div dangerouslySetInnerHTML={{ __html: column.text }} />
                     </div>
                   </div>
                 )
