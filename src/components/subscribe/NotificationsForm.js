@@ -62,7 +62,7 @@ class NotificationsForm extends PureComponent {
     );
   }
   onSubscriptionBtnClick = event => {
-    consolel.log("clicked");
+    console.log("clicked");
     this.getSubscriptionState().then(state => {
       if (state.isPushEnabled) {
         /* Subscribed, opt them out */
