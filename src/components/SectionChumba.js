@@ -20,7 +20,7 @@ const SectionChumbaWrapper = ({ data }) => {
                         className="chumba-card-icon"
                         style={{
                           background: `url(${
-                            column.icon.localFile.url
+                            column.icon.localFile.childImageSharp.fluid.src
                           }) no-repeat center `,
                           backgroundSize: 'contain',
                         }}
@@ -61,6 +61,13 @@ export default () => (
                       id
                       localFile {
                         url
+                        relativePath
+                        childImageSharp {
+                          id
+                          fluid {
+                            src                            
+                          }
+                        }
                       }
                     }
                   }
